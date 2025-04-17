@@ -113,3 +113,7 @@ def update_product(request, pk):
     return render(request, 'products/product_form.html', {'form': form})
 
 
+
+def get_non(request):
+    return render(request, 'products/product_form.html', {'form': form})
+
