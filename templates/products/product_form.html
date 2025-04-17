@@ -1,0 +1,33 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div style="max-width: 700px; margin: 40px auto;">
+    <h2 style="color: #4E8D7C; text-align: center; margin-bottom: 30px;">🛍 Mahsulot qo‘shish</h2>
+
+    <form method="post" enctype="multipart/form-data" style="background: #f9f9f9; padding: 30px; border-radius: 16px; box-shadow: 0 6px 16px rgba(0,0,0,0.05);">
+        {% csrf_token %}
+
+        {% for field in form %}
+        <div style="margin-bottom: 20px;">
+            <label for="{{ field.id_for_label }}" style="display: block; font-weight: 600; margin-bottom: 6px; color: #333;">
+                {{ field.label }}
+            </label>
+            {{ field }}
+            {% if field.errors %}
+            <div style="color: red; font-size: 14px; margin-top: 6px;">
+                {{ field.errors }}
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+
+        <div style="text-align: center; margin-top: 30px;">
+            <button type="submit" style="background-color: #4E8D7C; color: white; padding: 12px 28px; border: none; border-radius: 10px; font-weight: 600; font-size: 16px; cursor: pointer;">
+                ➕ Mahsulotni saqlash
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}

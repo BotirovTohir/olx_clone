@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div style="max-width: 1000px; margin: 0 auto; padding: 20px;">
+    <form method="get" action="" style="margin-bottom: 30px; text-align: center;">
+        <input type="text" name="q" placeholder="🔍 Qidiruv..." value="{{ query }}" style="padding: 10px; width: 60%; border: 1px solid #ccc; border-radius: 8px;">
+        <button type="submit" style="padding: 10px 16px; background-color: #4E8D7C; color: white; border: none; border-radius: 8px; margin-left: 8px;">Qidirish</button>
+    </form>
+
+    {% if products %}
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px;">
+            {% for p in products %}
+                <div style="background-color: #fff; border-radius: 12px; box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05); padding: 16px; text-align: center;">
+                    <img src="{{ p.image.url }}" alt="{{ p.name }}" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
+                    <h3 style="margin: 10px 0;">{{ p.name }}</h3>
+                    <p style="color: #4E8D7C;">${{ p.price }}</p>
+                    <p style="font-size: 14px; color: #555;">{{ p.description }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p style="text-align: center; color: #888; margin-top: 40px;">Natija topilmadi. Boshqa so‘z bilan urinib ko‘ring.</p>
+    {% endif %}
+</div>
+{% endblock %}

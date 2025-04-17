@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div style="max-width: 500px; margin: 60px auto; padding: 30px; background-color: #fff; border-radius: 16px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05); text-align: center;">
+
+    <h2 style="color: #E74C3C; margin-bottom: 20px;">⚠️ Diqqat!</h2>
+
+    <p style="font-size: 18px; color: #333; margin-bottom: 30px;">
+        Siz rostdan ham <strong>{{ category.name }}</strong> kategoriyasini o‘chirmoqchimisiz?
+    </p>
+
+    <form method="post" style="display: inline;">
+        {% csrf_token %}
+        <button type="submit" style="background-color: #E74C3C; color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; margin-right: 10px;">
+            🗑 O‘chirish
+        </button>
+    </form>
+
+    <a href="{% url 'category-list' %}" style="background-color: #BDC3C7; color: white; text-decoration: none; padding: 10px 20px; border-radius: 8px; font-weight: 600;">
+        ✖ Bekor qilish
+    </a>
+
+</div>
+{% endblock %}

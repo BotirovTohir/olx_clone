@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div style="max-width: 700px; margin: 0 auto;">
+    <h2 style="color: #4E8D7C; text-align: center;">📝 Kategoriya qo‘shish</h2>
+
+    <form method="post" style="background: #f9f9f9; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+        {% csrf_token %}
+
+        <div style="display: flex; align-items: center; gap: 12px;">
+            <label for="{{ form.name.id_for_label }}" style="text-transform: uppercase; font-weight: 600;">{{ form.name.label }}</label>
+
+            <div style="flex-grow: 1;">
+                {{ form.name }}
+            </div>
+
+            <button type="submit" style="background-color: #4E8D7C; color: white; padding: 10px 20px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">
+                💾 Saqlash
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}

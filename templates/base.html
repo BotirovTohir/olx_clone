@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini OLX - E'lonlar</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f6f8;
+            color: #333;
+        }
+
+        header {
+            background-color: #4E8D7C;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 32px;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 16px;
+            margin-top: 5px;
+            opacity: 0.9;
+        }
+
+        nav.navbar {
+            background-color: #ffffff;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            padding: 12px 0;
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        nav.navbar a {
+            color: #4E8D7C;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: background-color 0.2s ease;
+        }
+
+        nav.navbar a:hover {
+            background-color: #eaf3f0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+        }
+
+        footer {
+            background-color: #4E8D7C;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Mini OLX</h1>
+    <p>Mahalliy e’lonlar markazi — soting va toping!</p>
+</header>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="/">🏠 Bosh sahifa</a>
+        <a href="pro-create/">➕ E’lon qo‘shish</a>
+        <a href="create/">➕ Kategoriya qo‘shish</a>
+        <a href="pro-list/">🎯 E'lonlar</a>
+        <a href="0/">✅ Ro'yxatda O'tish</a>
+    </div>
+</nav>
+
+
+<div class="container">
+    {% block content %}
+    <!-- Sahifaning asosiy qismi shu yerda ko‘rsatiladi -->
+    {% endblock %}
+</div>
+
+<footer>
+    <p>Mini OLX — Mahalliy e’lonlar platformasi</p>
+</footer>
+
+
+</body>
+</html>

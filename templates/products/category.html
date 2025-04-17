@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div style="max-width: 800px; margin: 0 auto;">
+    <h2 style="text-align: center; color: #4E8D7C;">📂 Kategoriyalar</h2>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin-top: 20px;">
+        {% for i in cat %}
+        <div style="background-color: #ffffff; padding: 16px 24px; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); min-width: 200px; text-align: center;">
+            <a href="{% url 'category-detail' i.pk %}" style="text-decoration: none; color: #333; font-weight: 600;">
+                <p style="margin: 0;">{{ i.name }}</p>
+            </a>
+        </div>
+        {% empty %}
+        <p style="text-align: center; color: #888;">Hech qanday kategoriya topilmadi.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
