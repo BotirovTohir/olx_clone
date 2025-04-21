@@ -1,5 +1,7 @@
+from django.core.paginator import Paginator
 from django.db.models import Q
 from django.shortcuts import render, redirect
+from django.template.context_processors import request
 
 from page.forms import CategoryForm, ProductForm
 from page.models import Category, Product
@@ -22,7 +24,18 @@ def product_search_view(request):
             Q(description__icontains=query) |
             Q(price__icontains=query)
         )
+    else:
+        results = Product.objects.all()
     return render(request, 'products/product_list.html', {'products': results, 'query': query})
+
+
+    paginator = Paginator(results, 6)
+    page = request.GET.get("page")
+    page_data = paginator.get_page(page)
+    return render(request, 'products/product_list.html', {
+        'results': page_data,
+        'query': query
+    })
 
 
 def register(request):
@@ -113,7 +126,4 @@ def update_product(request, pk):
     return render(request, 'products/product_form.html', {'form': form})
 
 
-
-def get_non(request):
-    return render(request, 'products/product_form.html', {'form': form})
 
